@@ -1,0 +1,10 @@
+sudo rm workloads/*0
+sudo rm workloads/*1
+sudo rm workloads/*2
+sudo rm workloads/*3
+sudo rm workloads/*4
+sudo rm workloads/*5
+sudo rm workloads/*6
+sudo rm workloads/*7
+sudo rm workloads/*8
+sudo rm workloads/*9
