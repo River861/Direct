@@ -13,7 +13,7 @@ apt install numactl
 ```
 
 * master node（也是第一个compute node）
-    * 开启memcached，并且设置对外网可见
+    * 开启memcached，并且设置对外网可见（修改sudo vim /etc/memcached.conf）
     * 要使用tmux，一个窗口运行master，另一个运行compute client
 
 * compute node
