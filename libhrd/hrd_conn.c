@@ -645,6 +645,20 @@ void hrd_publish_dgram_qp(struct hrd_ctrl_blk* cb, int n, const char* qp_name) {
   qp_attr.name[len] = 0; /* Add the null terminator */
   qp_attr.lid = hrd_get_local_lid(cb->dgram_qp[n]->context, cb->dev_port_id);
   qp_attr.qpn = cb->dgram_qp[n]->qp_num;
+  // TODO 添加ibv_query_gid
+  union ibv_gid my_gid;
+  memset(qp_attr.gid, 0, 16);
+  if(USE_ROCE) {
+    int gid_idx = 0;
+    int rc = ibv_query_gid(cb->conn_qp[n]->context, cb->dev_port_id, gid_idx, &my_gid);
+    if (rc) {
+      fprintf(stderr, "could not get gid for port %d, index %d\n", cb->dev_port_id, gid_idx);
+    }
+    else {
+      fprintf(stdout, "Dev port: %d, index: %d\n", cb->dev_port_id, gid_idx);
+    }
+    memcpy(qp_attr.gid, &my_gid, 16);
+  }
 
   hrd_publish(qp_attr.name, &qp_attr, sizeof(struct hrd_qp_attr));
 }
