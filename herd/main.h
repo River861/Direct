@@ -40,10 +40,10 @@
 #define MAX_SERVER_PORTS 4
 #define NUM_WORKERS 4
 #define NUM_CLIENTS 8  // 32
-#define NUM_CLIENT_NODE 2
+#define NUM_CLIENT_NODE 16
 #define WORKLOAD_DIR "upd-workloads"
 #define WORKLOAD_ID "upd90"
-#define NUM_MEMORY 1  // MICA_NUM_MEMORY
+#define NUM_MEMORY 2  // MICA_NUM_MEMORY
 #define NUM_REPLICATION 2  //MICA_NUM_REPLICATION
 #define BENCHMARK_TYPE 3  // 0-micro_benchmark, 1-macro_benchmark, 2-rdma_testing, 3-lock-testing
 #define TEST_TYPE 0  // 0=throughput, 1=lattency; 0=one-size, 1=two-size(for rdma-testing)
