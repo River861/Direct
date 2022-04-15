@@ -40,7 +40,7 @@
 #define MAX_SERVER_PORTS 4
 #define NUM_WORKERS 4
 #define NUM_CLIENTS 8  // 32
-#define NUM_CLIENT_NODE 3
+#define NUM_CLIENT_NODE 2
 #define WORKLOAD_DIR "upd-workloads"
 #define WORKLOAD_ID "upd90"
 #define NUM_MEMORY 2  // MICA_NUM_MEMORY
