@@ -31,6 +31,7 @@
 #define HRD_RESERVED_NAME_PREFIX "__HRD_RESERVED_NAME_PREFIX"
 
 #define HRD_CONNECT_IB_ATOMICS 0
+#define USE_ROCE 1
 
 /*
  * Small max_inline_data reduces the QP's max WQE size, which reduces the
@@ -83,6 +84,7 @@ struct hrd_qp_attr {
 
   int lid;
   int qpn;
+  uint8_t gid[16]; /* gid */
 };
 
 struct hrd_ctrl_blk {

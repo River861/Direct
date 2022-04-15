@@ -470,6 +470,7 @@ void hrd_connect_qp(struct hrd_ctrl_blk* cb, int n,
   assert(n >= 0 && n < cb->num_conn_qps);
   assert(cb->conn_qp[n] != NULL);
   assert(cb->dev_port_id >= 1);
+  // TODO 从remote_qp_attr中拿gid
 
 #if HRD_CONNECT_IB_ATOMICS == 0
   struct ibv_qp_attr conn_attr;
@@ -494,7 +495,9 @@ void hrd_connect_qp(struct hrd_ctrl_blk* cb, int n,
     rtr_flags |= IBV_QP_MAX_DEST_RD_ATOMIC | IBV_QP_MIN_RNR_TIMER;
   }
 
-  if (ibv_modify_qp(cb->conn_qp[n], &conn_attr, rtr_flags)) {
+  if(USE_ROCE) memcpy(&conn_attr.ah_attr.grh.dgid, remote_qp_attr.gid, 16);
+
+  if (ibv_modify_qp(cb->conn_qp[n], &conn_attr, rtr_flags)) {   // TODO
     fprintf(stderr, "HRD: Failed to modify QP to RTR\n");
     assert(false);
   }
@@ -598,6 +601,8 @@ void hrd_publish_conn_qp(struct hrd_ctrl_blk* cb, int n, const char* qp_name) {
   qp_attr.rkey = cb->conn_buf_mr->rkey;
   qp_attr.lid = hrd_get_local_lid(cb->conn_qp[n]->context, cb->dev_port_id);
   qp_attr.qpn = cb->conn_qp[n]->qp_num;
+  // TODO 添加ibv_query_gid
+  memset(&qp_attr.gid, 0, 16);
 
   hrd_publish(qp_attr.name, &qp_attr, sizeof(struct hrd_qp_attr));
 }
