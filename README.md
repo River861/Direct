@@ -36,6 +36,9 @@ apt install numactl
 
 
 ### 2. Run
+* 修改脚本中的ip
+   * run-servers.sh、run-machine.sh、run-memory中的HRD_REGISTRY_IP
+
 
 * 编译
 ```
@@ -47,7 +50,7 @@ sh do.sh
     * tmux split
         其中一个运行
         ```
-        ./run-server.sh
+        ./run-servers.sh
         ```
         另一个运行
         ```
