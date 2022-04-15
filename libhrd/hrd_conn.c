@@ -496,10 +496,17 @@ void hrd_connect_qp(struct hrd_ctrl_blk* cb, int n,
 
   // TODO 从remote_qp_attr中拿gid
   if(USE_ROCE) {
+    conn_attr.ah_attr.is_global = 1;
+    conn_attr.ah_attr.port_num = 1;
     memcpy(&conn_attr.ah_attr.grh.dgid, remote_qp_attr->gid, 16);
-		uint8_t *p = remote_qp_attr->gid;
-		fprintf(stdout, "Remote GID =%02x:%02x:%02x:%02x:%02x:%02x:%02x:%02x:%02x:%02x:%02x:%02x:%02x:%02x:%02x:%02x\n ",p[0],
-				  p[1], p[2], p[3], p[4], p[5], p[6], p[7], p[8], p[9], p[10], p[11], p[12], p[13], p[14], p[15]);
+    conn_attr.ah_attr.grh.flow_label = 0;
+    conn_attr.ah_attr.grh.hop_limit = 1;
+    conn_attr.ah_attr.grh.sgid_index = config.gid_idx;
+    conn_attr.ah_attr.grh.traffic_class = 0;
+
+    uint8_t *p = remote_qp_attr->gid;
+    fprintf(stdout, "Remote GID =%02x:%02x:%02x:%02x:%02x:%02x:%02x:%02x:%02x:%02x:%02x:%02x:%02x:%02x:%02x:%02x\n ",p[0],
+          p[1], p[2], p[3], p[4], p[5], p[6], p[7], p[8], p[9], p[10], p[11], p[12], p[13], p[14], p[15]);
   }
 
   if (ibv_modify_qp(cb->conn_qp[n], &conn_attr, rtr_flags)) {   // TODO
@@ -554,10 +561,17 @@ void hrd_connect_qp(struct hrd_ctrl_blk* cb, int n,
 
   // TODO 从remote_qp_attr中拿gid
   if(USE_ROCE) {
+    conn_attr.ah_attr.is_global = 1;
+    conn_attr.ah_attr.port_num = 1;
     memcpy(&conn_attr.ah_attr.grh.dgid, remote_qp_attr->gid, 16);
-		uint8_t *p = remote_qp_attr->gid;
-		fprintf(stdout, "Remote GID =%02x:%02x:%02x:%02x:%02x:%02x:%02x:%02x:%02x:%02x:%02x:%02x:%02x:%02x:%02x:%02x\n ",p[0],
-				  p[1], p[2], p[3], p[4], p[5], p[6], p[7], p[8], p[9], p[10], p[11], p[12], p[13], p[14], p[15]);
+    conn_attr.ah_attr.grh.flow_label = 0;
+    conn_attr.ah_attr.grh.hop_limit = 1;
+    conn_attr.ah_attr.grh.sgid_index = config.gid_idx;
+    conn_attr.ah_attr.grh.traffic_class = 0;
+
+    uint8_t *p = remote_qp_attr->gid;
+    fprintf(stdout, "Remote GID =%02x:%02x:%02x:%02x:%02x:%02x:%02x:%02x:%02x:%02x:%02x:%02x:%02x:%02x:%02x:%02x\n ",p[0],
+          p[1], p[2], p[3], p[4], p[5], p[6], p[7], p[8], p[9], p[10], p[11], p[12], p[13], p[14], p[15]);
   }
 
   if (ibv_exp_modify_qp(cb->conn_qp[n], &conn_attr, rtr_flags)) {
