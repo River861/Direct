@@ -59,12 +59,12 @@ sh do.sh
 
 * compute node
     ```
-    ./run_machine.sh [machine_id]
+    ./run-machine.sh [machine_id]
     ```
     machine_id从0开始，master就是那个0
 
 * memory node
     ```
-    ./run_memory.sh [memory_id]
+    ./run-memory.sh [memory_id]
     ```
     memory_id从0开始
