@@ -501,7 +501,7 @@ void hrd_connect_qp(struct hrd_ctrl_blk* cb, int n,
     memcpy(&conn_attr.ah_attr.grh.dgid, remote_qp_attr->gid, 16);
     conn_attr.ah_attr.grh.flow_label = 0;
     conn_attr.ah_attr.grh.hop_limit = 1;
-    conn_attr.ah_attr.grh.sgid_index = config.gid_idx;
+    conn_attr.ah_attr.grh.sgid_index = 0;
     conn_attr.ah_attr.grh.traffic_class = 0;
 
     uint8_t *p = remote_qp_attr->gid;
@@ -566,7 +566,7 @@ void hrd_connect_qp(struct hrd_ctrl_blk* cb, int n,
     memcpy(&conn_attr.ah_attr.grh.dgid, remote_qp_attr->gid, 16);
     conn_attr.ah_attr.grh.flow_label = 0;
     conn_attr.ah_attr.grh.hop_limit = 1;
-    conn_attr.ah_attr.grh.sgid_index = config.gid_idx;
+    conn_attr.ah_attr.grh.sgid_index = 0;
     conn_attr.ah_attr.grh.traffic_class = 0;
 
     uint8_t *p = remote_qp_attr->gid;
