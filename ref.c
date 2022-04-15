@@ -144,7 +144,7 @@ int resources_create(struct resources *res)
 		goto resources_create_exit;
 	}
 	/* get device handle */
-	res->ib_ctx = ibv_open_device(ib_dev);
+	res->ib_ctx = ibv_open_device(ib_dev);   // TODO
 	if (!res->ib_ctx)
 	{
 		fprintf(stderr, "failed to open device %s\n", config.dev_name);
