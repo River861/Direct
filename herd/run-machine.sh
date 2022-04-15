@@ -22,7 +22,7 @@ fi
 blue "Removing hugepages"
 shm-rm.sh 1>/dev/null 2>/dev/null
 
-num_threads=10		# Threads per client machine
+num_threads=8		# Threads per client machine
 : ${HRD_REGISTRY_IP:?"Need to set HRD_REGISTRY_IP non-empty"}
 
 blue "Running $num_threads client threads"

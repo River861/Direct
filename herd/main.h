@@ -39,7 +39,7 @@
 /* Configuration options */
 #define MAX_SERVER_PORTS 4
 #define NUM_WORKERS 4
-#define NUM_CLIENTS 10  // 32
+#define NUM_CLIENTS 8  // 32
 #define NUM_CLIENT_NODE 1
 #define WORKLOAD_DIR "upd-workloads"
 #define WORKLOAD_ID "upd90"
