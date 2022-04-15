@@ -23,7 +23,7 @@
 #define HRD_Q_DEPTH 128  // 128 /* Depth of all queues */
 #define HRD_BIG_Q_DEPTH 15000
 
-#define HRD_DEFAULT_PSN 0  /*3185 /* PSN for all queues */
+#define HRD_DEFAULT_PSN 0  // 3185 /* PSN for all queues */
 #define HRD_DEFAULT_QKEY 0x11111111
 #define HRD_MAX_LID 256
 
