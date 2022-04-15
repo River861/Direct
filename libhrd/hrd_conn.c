@@ -495,7 +495,7 @@ void hrd_connect_qp(struct hrd_ctrl_blk* cb, int n,
     rtr_flags |= IBV_QP_MAX_DEST_RD_ATOMIC | IBV_QP_MIN_RNR_TIMER;
   }
 
-  if(USE_ROCE) memcpy(&conn_attr.ah_attr.grh.dgid, remote_qp_attr.gid, 16);
+  if(USE_ROCE) memcpy(&conn_attr.ah_attr.grh.dgid, remote_qp_attr->gid, 16);
 
   if (ibv_modify_qp(cb->conn_qp[n], &conn_attr, rtr_flags)) {   // TODO
     fprintf(stderr, "HRD: Failed to modify QP to RTR\n");
