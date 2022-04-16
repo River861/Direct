@@ -72,6 +72,7 @@ struct ibv_device* hrd_resolve_port_index(struct hrd_ctrl_blk* cb,
     {
       continue;
     }
+    printf("Get Device: %s\n", ibv_get_device_name(dev_list[dev_i]));
     struct ibv_context* ctx = ibv_open_device(dev_list[dev_i]);
     CPE(!ctx, "HRD: Couldn't open device", 0);
 
