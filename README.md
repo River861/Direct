@@ -34,6 +34,8 @@ apt install numactl
 * BENCHMARK_TYPE：执行的测试：0-micro_benchmark, 1-macro_benchmark, 2-rdma_testing, 3-lock-testing
 * TEST_TYPE：测试的类型：0=throughput, 1=lattency; 0=one-size, 1=two-size(for rdma-testing)
 
+在`hrd.h`中，设置要使用的RDMA网卡设备名：
+* DEV_NAME
 
 ### 2. Run
 * 修改脚本中的ip

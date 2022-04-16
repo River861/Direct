@@ -67,6 +67,11 @@ struct ibv_device* hrd_resolve_port_index(struct hrd_ctrl_blk* cb,
   int dev_i;
 
   for (dev_i = 0; dev_i < num_devices; dev_i++) {
+    // 找到特定的device
+    if (strcmp(ibv_get_device_name(dev_list[dev_i], DEV_NAME))
+    {
+      continue;
+    }
     struct ibv_context* ctx = ibv_open_device(dev_list[dev_i]);
     CPE(!ctx, "HRD: Couldn't open device", 0);
 

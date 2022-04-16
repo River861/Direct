@@ -9,7 +9,7 @@ function blue() {
 # HACK!!!
 # Change this to the memcached's machine IP
 #
-export HRD_REGISTRY_IP="128.110.218.216"
+export HRD_REGISTRY_IP="10.10.1.9"
 
 export MLX5_SINGLE_THREADED=1
 

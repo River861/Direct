@@ -32,6 +32,7 @@
 
 #define HRD_CONNECT_IB_ATOMICS 0
 #define USE_ROCE 1
+#define DEV_NAME "mlx5_3"
 
 /*
  * Small max_inline_data reduces the QP's max WQE size, which reduces the
