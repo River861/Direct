@@ -68,7 +68,7 @@ struct ibv_device* hrd_resolve_port_index(struct hrd_ctrl_blk* cb,
 
   for (dev_i = 0; dev_i < num_devices; dev_i++) {
     // 找到特定的device
-    if (strcmp(ibv_get_device_name(dev_list[dev_i], DEV_NAME))
+    if (strcmp(ibv_get_device_name(dev_list[dev_i]), DEV_NAME))
     {
       continue;
     }
